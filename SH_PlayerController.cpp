@@ -5,9 +5,6 @@
 
 bool ASH_PlayerController::InputTouch(uint32 Handle, ETouchType::Type Type, const FVector2D& TouchLocation, float Force, FDateTime DeviceTimestamp, uint32 TouchpadIndex)
 {
-	if(GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Touch!"));
-
 	//Touch Type
 	if(Type == ETouchType::Began)
 	{
@@ -16,7 +13,6 @@ bool ASH_PlayerController::InputTouch(uint32 Handle, ETouchType::Type Type, cons
 	}
 	else if(Type == ETouchType::Moved)
 	{
-	
 
 		//Move Camera
 		GetPawn()->AddControllerYawInput((TouchLocation.X - TouchXPos) / TouchXSensitivity);
@@ -26,7 +22,6 @@ bool ASH_PlayerController::InputTouch(uint32 Handle, ETouchType::Type Type, cons
 		TouchXPos = TouchLocation.X;
 		TouchYPos = TouchLocation.Y;
 	}
-
 
 	return true;
 }
